@@ -1,16 +1,16 @@
 /*
- * DESIGN: Cape Cod Editorial — Footer
- * Deep navy background, clean three-column layout
- * Elegant typography, subtle wave divider
+ * DESIGN: Cape Cod Editorial — Footer (WOW Edition)
+ * Deep navy background, animated entrance, wave divider
  */
 
 import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
+import { motion } from "framer-motion";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/sandnreef-logo_13970d04.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-navy text-white">
+    <footer className="bg-navy text-white relative">
       {/* Wave divider */}
       <div className="relative -mt-1">
         <svg
@@ -33,7 +33,13 @@ export default function Footer() {
       </div>
 
       <div className="container py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8 }}
+        >
           {/* Brand */}
           <div className="lg:col-span-1">
             <img
@@ -42,26 +48,28 @@ export default function Footer() {
               className="h-16 w-auto mb-5 brightness-0 invert"
             />
             <p className="text-white/60 leading-relaxed text-sm mb-6">
-              Professional marine services across Cape Cod, Massachusetts. 
+              Professional marine services across Cape Cod, Massachusetts.
               Mobile service, fully insured, local experts.
             </p>
             <div className="flex items-center gap-3">
-              <a
+              <motion.a
                 href="https://www.facebook.com/share/1Tv8kXFwRk/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-teal transition-colors duration-300"
+                whileHover={{ scale: 1.1 }}
               >
                 <Facebook className="w-4 h-4" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="https://www.instagram.com/sandnreef"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-teal transition-colors duration-300"
+                whileHover={{ scale: 1.1 }}
               >
                 <Instagram className="w-4 h-4" />
-              </a>
+              </motion.a>
             </div>
           </div>
 
@@ -80,7 +88,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-white/50 hover:text-teal transition-colors duration-300 text-sm"
+                    className="text-white/50 hover:text-teal transition-colors duration-300 text-sm hover:translate-x-1 inline-block"
                   >
                     {link.label}
                   </a>
@@ -145,7 +153,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-        </div>
+        </motion.div>
 
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">

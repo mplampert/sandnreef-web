@@ -1,13 +1,14 @@
 /*
- * DESIGN: Cape Cod Editorial — Homepage
- * Assembles all sections: Navbar, Hero, Services, About, Contact, Footer
- * Magazine-style flow with generous whitespace
+ * DESIGN: Cape Cod Editorial — Homepage (WOW Edition)
+ * Assembles all sections with Stats counter and Testimonials
  */
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
+import Stats from "@/components/Stats";
 import About from "@/components/About";
+import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -17,7 +18,9 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Services />
+      <Stats />
       <About />
+      <Testimonials />
       <Contact />
       <Footer />
     </div>
