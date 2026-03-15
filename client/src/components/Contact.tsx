@@ -89,6 +89,13 @@ export default function Contact() {
           headers: { "Content-Type": "application/json" },
         }
       );
+      // Fire Meta Pixel Lead event
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('track', 'Lead', {
+          content_name: formData.service,
+          content_category: 'Service Request',
+        });
+      }
       setSubmitted(true);
       setFormData({ name: "", email: "", phone: "", service: "", boatInfo: "", message: "" });
     } catch {
