@@ -4,6 +4,7 @@
  */
 
 import { useRef, useState } from "react";
+import axios from "axios";
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Anchor } from "lucide-react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 
@@ -63,16 +64,38 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Build mailto link with form data
-    const subject = encodeURIComponent(`Service Request: ${formData.service || "General Inquiry"}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.service}\nBoat Info: ${formData.boatInfo}\n\nMessage:\n${formData.message}`
-    );
-    window.location.href = `mailto:Sales@sandnreef.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    setSubmitting(true);
+    setError("");
+
+    try {
+      await axios.post(
+        "https://services.leadconnectorhq.com/hooks/tTDLcC77dmE4UWjUNAVf/webhook-trigger/218809fd-623e-4e70-ab25-c8aacdcd9773",
+        {
+          full_name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service_needed: formData.service,
+          boat_info: formData.boatInfo,
+          message: formData.message,
+          location_id: "tTDLcC77dmE4UWjUNAVf",
+          source: "Sand & Reef Website",
+        },
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      setSubmitted(true);
+      setFormData({ name: "", email: "", phone: "", service: "", boatInfo: "", message: "" });
+    } catch {
+      setError("Something went wrong. Please try calling us at (508) 294-6905.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -152,10 +175,10 @@ export default function Contact() {
                     >
                       <CheckCircle className="w-10 h-10 text-teal" />
                     </motion.div>
-                    <h4 className="font-serif text-2xl text-navy mb-3">Email Client Opened!</h4>
+                    <h4 className="font-serif text-2xl text-navy mb-3">Request Submitted!</h4>
                     <p className="text-muted-foreground max-w-sm">
-                      Your email client should have opened with the service request details.
-                      Send the email to complete your request. We'll get back to you within 24 hours.
+                      Thanks for reaching out! Your service request has been received.
+                      We'll get back to you within 24 hours.
                     </p>
                   </motion.div>
                 ) : (
@@ -272,15 +295,38 @@ export default function Contact() {
                     </div>
 
                     {/* Submit */}
+                    {error && (
+                      <motion.p
+                        className="text-red-600 text-sm bg-red-50 px-4 py-3 rounded-lg"
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                      >
+                        {error}
+                      </motion.p>
+                    )}
+
                     <motion.button
                       type="submit"
-                      className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-teal text-white font-semibold px-10 py-4 rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:shadow-teal/20 transition-shadow duration-300"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                      disabled={submitting}
+                      className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-teal text-white font-semibold px-10 py-4 rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:shadow-teal/20 transition-shadow duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                      whileHover={submitting ? {} : { scale: 1.02 }}
+                      whileTap={submitting ? {} : { scale: 0.98 }}
                     >
                       <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                      <Send className="w-4 h-4 relative" />
-                      <span className="relative">Send Request</span>
+                      {submitting ? (
+                        <>
+                          <svg className="animate-spin w-4 h-4 relative" viewBox="0 0 24 24" fill="none">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                          </svg>
+                          <span className="relative">Submitting...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4 relative" />
+                          <span className="relative">Send Request</span>
+                        </>
+                      )}
                     </motion.button>
                   </motion.form>
                 )}
