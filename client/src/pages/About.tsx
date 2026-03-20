@@ -38,7 +38,7 @@ const teamMembers = [
     name: "Dekel Cohen Sharon",
     role: "Operations & Team Lead",
     experience: "2 years",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/dekel-cohen-sharon_607fbca0.webp",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/dekel-cohen-sharon-new_ed82b947.webp",
     bio: "At Sand & Reef, I work closely with our team to keep daily operations running smoothly and deliver reliable, high-quality marine services. With a background as a college basketball team captain, I bring a team-first mindset, clear communication, and accountability to helping build a company that can grow while remaining dependable and customer-focused.",
     location: "Cape Cod",
   },
