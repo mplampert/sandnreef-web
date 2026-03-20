@@ -9,8 +9,9 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const HYFOIL_IMG_1 = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/hyfoil-boat-1_ce56242f.webp";
+const HYFOIL_IMG_1 = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/hyfoil-boat-new_312c33d0.png";
 const HYFOIL_IMG_2 = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/hyfoil-boat-2_73195751.webp";
+const HYFOIL_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/hyfoil-logo_a78695ab.png";
 const FLUX_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/flux-marine_d78edbdf.webp";
 const SIONYX_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/sionyx-nightwave_5324b3c9.webp";
 const CYW_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/coastal-yacht-wraps-hero_244977ff.webp";
@@ -115,9 +116,11 @@ export default function Partners() {
               <span className="text-teal text-xs font-semibold tracking-[0.2em] uppercase">
                 Partner
               </span>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-navy mt-3 mb-6">
-                HYFOIL Marine
-              </h2>
+              <img
+                src={HYFOIL_LOGO}
+                alt="HYFOIL Marine logo"
+                className="h-12 md:h-14 mt-3 mb-6 object-contain"
+              />
               <div className="w-16 h-0.5 bg-teal mb-8" />
               <p className="text-navy/70 text-lg leading-relaxed mb-6">
                 Foiling boats, turnkey. We source hulls and handle engine installation
