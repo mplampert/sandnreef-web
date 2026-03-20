@@ -77,30 +77,17 @@ export default function Partners() {
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
             >
-              <div className="grid grid-cols-2 gap-4">
-                <motion.div
-                  className="overflow-hidden rounded-lg shadow-xl"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <img
-                    src={HYFOIL_IMG_1}
-                    alt="HYFOIL 28 foiling boat"
-                    className="w-full h-64 lg:h-80 object-cover"
-                  />
-                </motion.div>
-                <motion.div
-                  className="overflow-hidden rounded-lg shadow-xl mt-8"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <img
-                    src={HYFOIL_IMG_2}
-                    alt="HYFOIL 28 on the water"
-                    className="w-full h-64 lg:h-80 object-cover"
-                  />
-                </motion.div>
-              </div>
+              <motion.div
+                className="overflow-hidden rounded-lg shadow-xl"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4 }}
+              >
+                <img
+                  src={HYFOIL_IMG_1}
+                  alt="HYFOIL 28 foiling boat on the water"
+                  className="w-full h-72 lg:h-[500px] object-cover"
+                />
+              </motion.div>
               {/* Decorative element */}
               <div className="absolute -bottom-4 -left-4 w-24 h-24 border-2 border-teal/30 rounded-lg -z-10" />
             </motion.div>
