@@ -1,10 +1,12 @@
 /*
  * DESIGN: Cape Cod Editorial — Footer (WOW Edition)
  * Deep navy background, animated entrance, wave divider
+ * Updated: two locations (Cape Cod + North Shore Beverly)
  */
 
 import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/sandnreef-logo_13970d04.png";
 
@@ -34,7 +36,7 @@ export default function Footer() {
 
       <div className="container py-16 lg:py-20">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -48,8 +50,8 @@ export default function Footer() {
               className="h-16 w-auto mb-5 brightness-0 invert"
             />
             <p className="text-white/60 leading-relaxed text-sm mb-6">
-              Professional marine services across Cape Cod, Massachusetts.
-              Mobile service, fully insured, local experts.
+              Professional marine services across Cape Cod & the North Shore.
+              Veteran-owned, fully insured, local experts.
             </p>
             <div className="flex items-center gap-3">
               <motion.a
@@ -80,18 +82,28 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                { label: "Home", href: "#" },
-                { label: "Services", href: "#services" },
-                { label: "About", href: "#about" },
-                { label: "Contact & Book", href: "#contact" },
+                { label: "Home", href: "/" },
+                { label: "Services", href: "/#services" },
+                { label: "Partners", href: "/partners" },
+                { label: "About", href: "/about" },
+                { label: "Contact & Book", href: "/#contact" },
               ].map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-white/50 hover:text-teal transition-colors duration-300 text-sm hover:translate-x-1 inline-block"
-                  >
-                    {link.label}
-                  </a>
+                  {link.href.startsWith("/#") ? (
+                    <a
+                      href={link.href}
+                      className="text-white/50 hover:text-teal transition-colors duration-300 text-sm hover:translate-x-1 inline-block"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-white/50 hover:text-teal transition-colors duration-300 text-sm hover:translate-x-1 inline-block"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -116,10 +128,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Cape Cod Location */}
           <div>
             <h4 className="font-semibold text-sm tracking-[0.15em] uppercase mb-6 text-white/80">
-              Contact Us
+              Cape Cod
             </h4>
             <ul className="space-y-4">
               <li>
@@ -153,6 +165,44 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+
+          {/* North Shore Location */}
+          <div>
+            <h4 className="font-semibold text-sm tracking-[0.15em] uppercase mb-6 text-white/80">
+              North Shore
+            </h4>
+            <ul className="space-y-4">
+              <li>
+                <a
+                  href="https://maps.google.com/?q=100+Cummings+Center+Suite+113+E4+Beverly+MA+01915"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 text-white/50 hover:text-teal transition-colors text-sm"
+                >
+                  <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
+                  100 Cummings Center, Suite 113 E4, Beverly, MA 01915
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:5082946905"
+                  className="flex items-center gap-3 text-white/50 hover:text-teal transition-colors text-sm"
+                >
+                  <Phone className="w-4 h-4 shrink-0" />
+                  (508) 294-6905
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:Sales@sandnreef.com"
+                  className="flex items-center gap-3 text-white/50 hover:text-teal transition-colors text-sm"
+                >
+                  <Mail className="w-4 h-4 shrink-0" />
+                  Sales@sandnreef.com
+                </a>
+              </li>
+            </ul>
+          </div>
         </motion.div>
 
         {/* Bottom bar */}
@@ -161,7 +211,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Sand &amp; Reef. All rights reserved.
           </p>
           <p className="text-white/30 text-xs">
-            Mobile service available across Cape Cod, Massachusetts
+            Mobile service available across Cape Cod & the North Shore, Massachusetts
           </p>
         </div>
       </div>
