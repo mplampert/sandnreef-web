@@ -14,7 +14,8 @@ const HYFOIL_IMG_2 = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6
 const HYFOIL_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/hyfoil-logo_a78695ab.png";
 const FLUX_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/flux-motor_280ec54c.webp";
 const CYW_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/cyw-logo_c3e7faaa.webp";
-const SIONYX_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/sionyx-nightwave_5324b3c9.webp";
+const SIONYX_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/sionyx-camera_72c8c536.png";
+const SIONYX_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/sionyx-logo_ebf57be3.png";
 const CYW_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/coastal-yacht-wraps-hero_244977ff.webp";
 
 const fadeUp = {
@@ -277,9 +278,11 @@ export default function Partners() {
               <span className="text-teal text-xs font-semibold tracking-[0.2em] uppercase">
                 Partner
               </span>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-navy mt-3 mb-6">
-                SiOnyx
-              </h2>
+              <img
+                src={SIONYX_LOGO}
+                alt="SiOnyx logo"
+                className="h-8 md:h-10 mt-3 mb-6 object-contain invert"
+              />
               <div className="w-16 h-0.5 bg-teal mb-8" />
               <p className="text-navy/70 text-lg leading-relaxed mb-6">
                 Digital night vision for the water. See clearly in complete darkness
