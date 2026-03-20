@@ -12,7 +12,8 @@ import Footer from "@/components/Footer";
 const HYFOIL_IMG_1 = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/hyfoil-boat-new_312c33d0.png";
 const HYFOIL_IMG_2 = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/hyfoil-boat-2_73195751.webp";
 const HYFOIL_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/hyfoil-logo_a78695ab.png";
-const FLUX_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/flux-marine_d78edbdf.webp";
+const FLUX_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/flux-motor_280ec54c.webp";
+const CYW_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/cyw-logo_c3e7faaa.webp";
 const SIONYX_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/sionyx-nightwave_5324b3c9.webp";
 const CYW_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/coastal-yacht-wraps-hero_244977ff.webp";
 
@@ -77,30 +78,17 @@ export default function Partners() {
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
             >
-              <div className="grid grid-cols-2 gap-4">
-                <motion.div
-                  className="overflow-hidden rounded-lg shadow-xl"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <img
-                    src={HYFOIL_IMG_1}
-                    alt="HYFOIL 28 foiling boat"
-                    className="w-full h-64 lg:h-80 object-cover"
-                  />
-                </motion.div>
-                <motion.div
-                  className="overflow-hidden rounded-lg shadow-xl mt-8"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <img
-                    src={HYFOIL_IMG_2}
-                    alt="HYFOIL 28 on the water"
-                    className="w-full h-64 lg:h-80 object-cover"
-                  />
-                </motion.div>
-              </div>
+              <motion.div
+                className="overflow-hidden rounded-lg shadow-xl"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4 }}
+              >
+                <img
+                  src={HYFOIL_IMG_1}
+                  alt="HYFOIL 28 foiling boat on the water"
+                  className="w-full h-72 lg:h-[500px] object-cover"
+                />
+              </motion.div>
               {/* Decorative element */}
               <div className="absolute -bottom-4 -left-4 w-24 h-24 border-2 border-teal/30 rounded-lg -z-10" />
             </motion.div>
@@ -352,9 +340,11 @@ export default function Partners() {
               <span className="text-teal text-xs font-semibold tracking-[0.2em] uppercase">
                 Partner
               </span>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-navy mt-3 mb-6">
-                Coastal Yacht Wraps
-              </h2>
+              <img
+                src={CYW_LOGO}
+                alt="Coastal Yacht Wraps logo"
+                className="h-12 md:h-16 mt-3 mb-6 object-contain"
+              />
               <div className="w-16 h-0.5 bg-teal mb-8" />
               <p className="text-navy/70 text-lg leading-relaxed mb-6">
                 Premium marine wraps and Yacht Armor protection film. Transform
