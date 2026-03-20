@@ -12,6 +12,8 @@ import Footer from "@/components/Footer";
 const HYFOIL_IMG_1 = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/hyfoil-boat-1_ce56242f.webp";
 const HYFOIL_IMG_2 = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/hyfoil-boat-2_73195751.webp";
 const FLUX_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/flux-marine_d78edbdf.webp";
+const SIONYX_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/sionyx-nightwave_5324b3c9.webp";
+const CYW_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/coastal-yacht-wraps-hero_244977ff.webp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -48,7 +50,7 @@ export default function Partners() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            Premium boats & electric.
+            Premium partners, premium results.
           </motion.h1>
           <motion.p
             className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto"
@@ -56,7 +58,7 @@ export default function Partners() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            Turnkey builds. We source, install, and deliver.
+            From foiling boats to night vision to marine wraps — we work with the best in the industry.
           </motion.p>
         </div>
       </section>
@@ -235,6 +237,178 @@ export default function Partners() {
                 />
               </motion.div>
               {/* Decorative element */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-teal/30 rounded-lg -z-10" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="container">
+        <div className="h-px bg-gradient-to-r from-transparent via-teal/30 to-transparent" />
+      </div>
+
+      {/* SiOnyx Section */}
+      <section className="py-20 lg:py-28">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Image */}
+            <motion.div
+              className="relative"
+              custom={0}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+            >
+              <motion.div
+                className="overflow-hidden rounded-lg shadow-xl"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4 }}
+              >
+                <img
+                  src={SIONYX_IMG}
+                  alt="SiOnyx Nightwave digital night vision camera on boat"
+                  className="w-full h-72 lg:h-[500px] object-cover"
+                />
+              </motion.div>
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 border-2 border-teal/30 rounded-lg -z-10" />
+            </motion.div>
+
+            {/* Content */}
+            <motion.div
+              custom={1}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+            >
+              <span className="text-teal text-xs font-semibold tracking-[0.2em] uppercase">
+                Partner
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-navy mt-3 mb-6">
+                SiOnyx
+              </h2>
+              <div className="w-16 h-0.5 bg-teal mb-8" />
+              <p className="text-navy/70 text-lg leading-relaxed mb-6">
+                Digital night vision for the water. See clearly in complete darkness
+                with color night vision cameras purpose-built for marine use.
+              </p>
+              <p className="text-navy/60 leading-relaxed mb-8">
+                SiOnyx's Nightwave cameras bring military-grade digital night vision
+                technology to recreational and commercial boating. As an authorized
+                dealer and installer, Sand & Reef handles the complete integration —
+                from camera mounting and wiring to MFD display configuration. Navigate
+                with confidence in any lighting condition.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <motion.a
+                  href="https://www.sionyx.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-navy text-white font-semibold px-6 py-3 rounded-md hover:bg-navy/90 transition-all duration-300"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  SiOnyx Nightwave
+                  <ExternalLink className="w-4 h-4" />
+                </motion.a>
+                <motion.a
+                  href="/#contact"
+                  className="inline-flex items-center gap-2 border-2 border-teal text-teal font-semibold px-6 py-3 rounded-md hover:bg-teal hover:text-white transition-all duration-300"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Inquire
+                  <ArrowRight className="w-4 h-4" />
+                </motion.a>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="container">
+        <div className="h-px bg-gradient-to-r from-transparent via-teal/30 to-transparent" />
+      </div>
+
+      {/* Coastal Yacht Wraps Section */}
+      <section className="py-20 lg:py-28">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Content (reversed order on desktop) */}
+            <motion.div
+              className="order-2 lg:order-1"
+              custom={0}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+            >
+              <span className="text-teal text-xs font-semibold tracking-[0.2em] uppercase">
+                Partner
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-navy mt-3 mb-6">
+                Coastal Yacht Wraps
+              </h2>
+              <div className="w-16 h-0.5 bg-teal mb-8" />
+              <p className="text-navy/70 text-lg leading-relaxed mb-6">
+                Premium marine wraps and Yacht Armor protection film. Transform
+                and protect your vessel with Massachusetts' most trusted wrap specialists.
+              </p>
+              <p className="text-navy/60 leading-relaxed mb-8">
+                Coastal Yacht Wraps delivers hull wraps, sport fishing wraps, interior
+                protection film, and boat advertising — all with a 3-year guarantee
+                and 3-5 day turnaround. As a certified Yacht Armor installer, they
+                provide invisible ceramic-coated protection that guards against UV,
+                salt, and impact. Save 40-60% compared to a marine paint job with
+                superior, fully reversible results.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <motion.a
+                  href="https://www.coastalyachtwraps.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-navy text-white font-semibold px-6 py-3 rounded-md hover:bg-navy/90 transition-all duration-300"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Coastal Yacht Wraps
+                  <ExternalLink className="w-4 h-4" />
+                </motion.a>
+                <motion.a
+                  href="/#contact"
+                  className="inline-flex items-center gap-2 border-2 border-teal text-teal font-semibold px-6 py-3 rounded-md hover:bg-teal hover:text-white transition-all duration-300"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Inquire
+                  <ArrowRight className="w-4 h-4" />
+                </motion.a>
+              </div>
+            </motion.div>
+
+            {/* Image */}
+            <motion.div
+              className="order-1 lg:order-2 relative"
+              custom={1}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+            >
+              <motion.div
+                className="overflow-hidden rounded-lg shadow-xl"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4 }}
+              >
+                <img
+                  src={CYW_IMG}
+                  alt="Coastal Yacht Wraps premium marine wrap on yacht"
+                  className="w-full h-72 lg:h-[500px] object-cover"
+                />
+              </motion.div>
               <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-teal/30 rounded-lg -z-10" />
             </motion.div>
           </div>
