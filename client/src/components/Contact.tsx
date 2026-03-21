@@ -79,7 +79,7 @@ export default function Contact() {
           full_name: formData.name,
           email: formData.email,
           phone: formData.phone,
-          service: formData.service,
+          service_needed: formData.service,
           boat_info: formData.boatInfo,
           message: formData.message,
           location_id: "tTDLcC77dmE4UWjUNAVf",

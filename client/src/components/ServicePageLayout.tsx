@@ -91,7 +91,7 @@ export default function ServicePageLayout({
           full_name: formData.name,
           email: formData.email,
           phone: formData.phone,
-          service: serviceValue,
+          service_needed: serviceValue,
           boat_info: formData.boatInfo,
           message: formData.message,
           location_id: "tTDLcC77dmE4UWjUNAVf",
