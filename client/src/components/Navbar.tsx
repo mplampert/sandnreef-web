@@ -16,6 +16,8 @@ const serviceLinks = [
   { label: "Yacht Electronics", href: "/services/electronics" },
   { label: "Detailing", href: "/services/detailing" },
   { label: "Winterization", href: "/services/winterization" },
+  { label: "Gel Coat & Bottom Paint", href: "/services/gelcoat-bottom-paint" },
+  { label: "Engines & Repowers", href: "/services/engines-repowers" },
 ];
 
 const navLinks = [

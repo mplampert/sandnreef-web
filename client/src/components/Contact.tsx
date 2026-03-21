@@ -43,6 +43,8 @@ const serviceOptions = [
   { label: "Electronics Installation", value: "electronics-installation" },
   { label: "Winterization & Shrink-Wrap", value: "winterization" },
   { label: "Detailing & Washing", value: "detailing" },
+  { label: "Gel Coat & Bottom Paint", value: "gelcoat-bottom-paint" },
+  { label: "Engine Work & Repowers", value: "engine-repower" },
   { label: "Preventative Maintenance", value: "preventative-maintenance" },
   { label: "Other / General Inquiry", value: "other" },
 ];

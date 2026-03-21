@@ -6,13 +6,15 @@
  */
 
 import { useRef } from "react";
-import { Zap, Snowflake, Sparkles, Wrench, ArrowRight } from "lucide-react";
+import { Zap, Snowflake, Sparkles, Wrench, ArrowRight, Paintbrush, Settings } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { Link } from "wouter";
 
 const ELECTRONICS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/boat-electronics-RNKcPjZyAepXrfC3An3Lpf.webp";
 const WINTERIZATION_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/boat-winterization-FkiwwazyU6AbeoWrN2eFCo.webp";
 const DETAILING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/boat-detailing-f2MYYpvZEU9wKFBjAbcTSj.webp";
+const GELCOAT_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/gelcoat-hero-XFsXeYyUDrZ8zU5WFSBcAj.webp";
+const ENGINE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/engine-hero-3EACz5FUmn4dBkXwycY2Lk.webp";
 
 const services = [
   {
@@ -44,6 +46,26 @@ const services = [
     image: DETAILING_IMG,
     features: ["Hull Cleaning & Polish", "Topside Wax & Seal", "Interior Detailing"],
     href: "/services/detailing",
+  },
+  {
+    icon: Paintbrush,
+    title: "Gel Coat & Bottom Paint",
+    subtitle: "Hull Finishing",
+    description:
+      "Professional gel coat repair, refinishing, and bottom paint application. We protect your hull and keep it looking sharp.",
+    image: GELCOAT_IMG,
+    features: ["Gel Coat Repair & Refinish", "Antifouling Bottom Paint", "Barrier Coat & Blister Repair"],
+    href: "/services/gelcoat-bottom-paint",
+  },
+  {
+    icon: Settings,
+    title: "Engines & Repowers",
+    subtitle: "Service & Installation",
+    description:
+      "From routine maintenance to full repowers — expert marine engine service for outboards, inboards, and sterndrives.",
+    image: ENGINE_IMG,
+    features: ["Full Repower Packages", "Diagnostics & Repair", "Rigging & Controls"],
+    href: "/services/engines-repowers",
   },
 ];
 
@@ -181,10 +203,10 @@ export default function Services() {
           </motion.p>
         </div>
 
-        {/* Service cards — 3-column grid */}
+        {/* Service cards — responsive grid */}
         <motion.div
           ref={cardsRef}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
           variants={containerVariants}
           initial="hidden"
           animate={cardsInView ? "visible" : "hidden"}
