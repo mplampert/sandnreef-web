@@ -84,7 +84,7 @@ export default function ServiceWinterization() {
       processSteps={processSteps}
       ctaTitle="Book Your Winterization Now"
       ctaText="Don't wait until the first frost. Secure your winterization slot early and we'll handle everything — from engine prep to shrink-wrap — so your boat is ready for spring."
-      serviceValue="Winterization & Shrink-Wrap"
+      serviceValue="winterization"
     />
   );
 }

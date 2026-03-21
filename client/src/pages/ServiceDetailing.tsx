@@ -84,7 +84,7 @@ export default function ServiceDetailing() {
       processSteps={processSteps}
       ctaTitle="Ready for a Fresh Shine?"
       ctaText="Tell us about your boat and what it needs. Whether it's a quick wash or a full restoration, we'll put together a custom plan and come to you."
-      serviceValue="Detailing & Washing"
+      serviceValue="detailing"
     />
   );
 }

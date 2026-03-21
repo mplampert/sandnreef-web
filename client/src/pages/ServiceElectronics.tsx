@@ -84,7 +84,7 @@ export default function ServiceElectronics() {
       processSteps={processSteps}
       ctaTitle="Ready to Upgrade Your Electronics?"
       ctaText="Tell us about your boat and what you're looking for. We'll come to you with a free consultation and custom quote — no obligation."
-      serviceValue="Electronics Installation"
+      serviceValue="electronics-installation"
     />
   );
 }

@@ -40,11 +40,11 @@ const contactItems = [
 ];
 
 const serviceOptions = [
-  "Electronics Installation",
-  "Winterization & Shrink-Wrap",
-  "Detailing & Washing",
-  "Preventative Maintenance",
-  "Other / General Inquiry",
+  { label: "Electronics Installation", value: "electronics-installation" },
+  { label: "Winterization & Shrink-Wrap", value: "winterization" },
+  { label: "Detailing & Washing", value: "detailing" },
+  { label: "Preventative Maintenance", value: "preventative-maintenance" },
+  { label: "Other / General Inquiry", value: "other" },
 ];
 
 export default function Contact() {
@@ -79,7 +79,7 @@ export default function Contact() {
           full_name: formData.name,
           email: formData.email,
           phone: formData.phone,
-          service_needed: formData.service,
+          service: formData.service,
           boat_info: formData.boatInfo,
           message: formData.message,
           location_id: "tTDLcC77dmE4UWjUNAVf",
@@ -265,7 +265,7 @@ export default function Contact() {
                         >
                           <option value="">Select a service...</option>
                           {serviceOptions.map((opt) => (
-                            <option key={opt} value={opt}>{opt}</option>
+                            <option key={opt.value} value={opt.value}>{opt.label}</option>
                           ))}
                         </select>
                       </div>
