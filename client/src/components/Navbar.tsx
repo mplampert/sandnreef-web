@@ -2,19 +2,25 @@
  * DESIGN: Cape Cod Editorial — Navigation (WOW Edition)
  * Glass-effect backdrop blur, smooth color transitions,
  * animated mobile menu, hover underline effects
- * Updated: multi-page nav with Partners and About links
+ * Updated: Services dropdown with links to individual service pages
  */
 
-import { useState, useEffect } from "react";
-import { Phone, Menu, X, Facebook, Instagram } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Phone, Menu, X, Facebook, Instagram, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/sandnreef-logo_13970d04.png";
 
+const serviceLinks = [
+  { label: "Yacht Electronics", href: "/services/electronics" },
+  { label: "Detailing", href: "/services/detailing" },
+  { label: "Winterization", href: "/services/winterization" },
+];
+
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/#services" },
+  { label: "Services", href: "/#services", hasDropdown: true },
   { label: "Partners", href: "/partners" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/#contact" },
@@ -23,15 +29,31 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [location] = useLocation();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Determine if we're on the homepage (for transparent nav)
   const isHomePage = location === "/";
+  const isServicePage = location.startsWith("/services/");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setServicesOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   // On subpages, always show the solid navbar
@@ -48,6 +70,15 @@ export default function Navbar() {
         window.location.href = href;
       }
     }
+  };
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setServicesOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setServicesOpen(false), 150);
   };
 
   return (
@@ -80,10 +111,9 @@ export default function Navbar() {
               link.href === "/"
                 ? location === "/"
                 : link.href.startsWith("/#")
-                ? location === "/"
+                ? location === "/" || (link.label === "Services" && isServicePage)
                 : location === link.href;
 
-            // Hash links use <a>, page links use <Link>
             const isHashLink = link.href.startsWith("/#");
             const isPageLink = !isHashLink;
 
@@ -96,6 +126,82 @@ export default function Navbar() {
                 ? "text-white"
                 : "text-white/90 hover:text-white"
             }`;
+
+            // Services link with dropdown
+            if (link.hasDropdown) {
+              return (
+                <div
+                  key={link.label}
+                  className="relative"
+                  ref={dropdownRef}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <a
+                    href={link.href}
+                    onClick={(e) => {
+                      if (isHomePage) {
+                        e.preventDefault();
+                        handleNavClick(link.href);
+                      }
+                    }}
+                    className={`${className} inline-flex items-center gap-1`}
+                  >
+                    {link.label}
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} />
+                    <span
+                      className={`absolute -bottom-1 left-0 h-0.5 bg-teal transition-transform duration-300 origin-left w-full ${
+                        isActive || isServicePage ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                      }`}
+                    />
+                  </a>
+
+                  <AnimatePresence>
+                    {servicesOpen && (
+                      <motion.div
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 bg-white rounded-xl shadow-xl border border-sand-dark/50 overflow-hidden"
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <div className="py-2">
+                          {serviceLinks.map((sLink) => (
+                            <Link
+                              key={sLink.href}
+                              href={sLink.href}
+                              className={`block px-5 py-3 text-sm font-medium transition-colors ${
+                                location === sLink.href
+                                  ? "text-teal bg-teal/5"
+                                  : "text-navy hover:text-teal hover:bg-sand/50"
+                              }`}
+                              onClick={() => setServicesOpen(false)}
+                            >
+                              {sLink.label}
+                            </Link>
+                          ))}
+                          <div className="border-t border-sand-dark/30 mt-1 pt-1">
+                            <a
+                              href="/#services"
+                              onClick={(e) => {
+                                setServicesOpen(false);
+                                if (isHomePage) {
+                                  e.preventDefault();
+                                  handleNavClick("/#services");
+                                }
+                              }}
+                              className="block px-5 py-3 text-sm text-muted-foreground hover:text-teal transition-colors"
+                            >
+                              View All Services
+                            </a>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            }
 
             return isPageLink ? (
               <Link key={link.label} href={link.href} className={className}>
@@ -219,6 +325,64 @@ export default function Navbar() {
               {navLinks.map((link, i) => {
                 const isHashLink = link.href.startsWith("/#");
                 const isPageLink = !isHashLink;
+
+                // Services with expandable sub-menu
+                if (link.hasDropdown) {
+                  return (
+                    <motion.div
+                      key={link.label}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.05 }}
+                    >
+                      <button
+                        onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                        className="w-full flex items-center justify-between py-3 text-navy font-medium text-base tracking-wide uppercase hover:text-teal transition-colors"
+                      >
+                        {link.label}
+                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`} />
+                      </button>
+                      <AnimatePresence>
+                        {mobileServicesOpen && (
+                          <motion.div
+                            className="pl-4 space-y-1 overflow-hidden"
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            {serviceLinks.map((sLink) => (
+                              <Link
+                                key={sLink.href}
+                                href={sLink.href}
+                                onClick={() => setMobileOpen(false)}
+                                className={`block py-2.5 text-sm font-medium transition-colors ${
+                                  location === sLink.href ? "text-teal" : "text-navy/70 hover:text-teal"
+                                }`}
+                              >
+                                {sLink.label}
+                              </Link>
+                            ))}
+                            <a
+                              href="/#services"
+                              onClick={(e) => {
+                                if (isHomePage) {
+                                  e.preventDefault();
+                                  handleNavClick("/#services");
+                                } else {
+                                  setMobileOpen(false);
+                                }
+                              }}
+                              className="block py-2.5 text-sm text-muted-foreground hover:text-teal transition-colors"
+                            >
+                              View All Services
+                            </a>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
+                  );
+                }
 
                 return isPageLink ? (
                   <motion.div
