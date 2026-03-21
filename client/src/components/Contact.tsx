@@ -74,7 +74,7 @@ export default function Contact() {
 
     try {
       await axios.post(
-        "https://services.leadconnectorhq.com/hooks/tTDLcC77dmE4UWjUNAVf/webhook-trigger/218809fd-623e-4e70-ab25-c8aacdcd9773",
+        "https://services.leadconnectorhq.com/hooks/tTDLcC77dmE4UWjUNAVf/webhook-trigger/tqwyH0Q2C67hOCZZQyZp",
         {
           full_name: formData.name,
           email: formData.email,
