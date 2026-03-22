@@ -13,6 +13,7 @@ import ServiceDetailing from "./pages/ServiceDetailing";
 import ServiceWinterization from "./pages/ServiceWinterization";
 import ServiceGelcoat from "./pages/ServiceGelcoat";
 import ServiceEngines from "./pages/ServiceEngines";
+import ServiceMaintenance from "./pages/ServiceMaintenance";
 
 
 function Router() {
@@ -26,6 +27,7 @@ function Router() {
       <Route path={"/services/winterization"} component={ServiceWinterization} />
       <Route path={"/services/gelcoat-bottom-paint"} component={ServiceGelcoat} />
       <Route path={"/services/engines-repowers"} component={ServiceEngines} />
+      <Route path={"/services/maintenance"} component={ServiceMaintenance} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

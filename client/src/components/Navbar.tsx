@@ -18,6 +18,7 @@ const serviceLinks = [
   { label: "Winterization", href: "/services/winterization" },
   { label: "Gel Coat & Bottom Paint", href: "/services/gelcoat-bottom-paint" },
   { label: "Engines & Repowers", href: "/services/engines-repowers" },
+  { label: "Preventative Maintenance", href: "/services/maintenance" },
 ];
 
 const navLinks = [

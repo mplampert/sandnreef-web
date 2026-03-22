@@ -15,6 +15,7 @@ const WINTERIZATION_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394
 const DETAILING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/boat-detailing-f2MYYpvZEU9wKFBjAbcTSj.webp";
 const GELCOAT_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/gelcoat-hero-XFsXeYyUDrZ8zU5WFSBcAj.webp";
 const ENGINE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/engine-hero-3EACz5FUmn4dBkXwycY2Lk.webp";
+const MAINTENANCE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/maintenance-hero-4vHrXbXFwAYNvjiBubdqCz.webp";
 
 const services = [
   {
@@ -66,6 +67,16 @@ const services = [
     image: ENGINE_IMG,
     features: ["Full Repower Packages", "Diagnostics & Repair", "Rigging & Controls"],
     href: "/services/engines-repowers",
+  },
+  {
+    icon: Wrench,
+    title: "Maintenance",
+    subtitle: "Preventative Care",
+    description:
+      "Scheduled maintenance programs that keep your boat running reliably and protect your investment — season after season.",
+    image: MAINTENANCE_IMG,
+    features: ["Custom Maintenance Plans", "Engine Service & Fluids", "Safety Inspections"],
+    href: "/services/maintenance",
   },
 ];
 
@@ -216,7 +227,7 @@ export default function Services() {
           ))}
         </motion.div>
 
-        {/* Preventative Maintenance CTA */}
+        {/* CTA Banner */}
         <motion.div
           className="mt-24 lg:mt-32"
           initial={{ opacity: 0, y: 40 }}
@@ -246,22 +257,23 @@ export default function Services() {
                 <Wrench className="w-8 h-8 text-teal" />
               </motion.div>
               <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white mb-5">
-                Preventative Maintenance
+                Not Sure What You Need?
               </h3>
               <p className="text-white/60 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-                Keep your vessel running at peak performance with scheduled maintenance plans
-                tailored to your boat and usage. From oil changes to full system inspections.
+                Tell us about your boat and we'll recommend the right services.
+                Free consultations — no obligation.
               </p>
-              <motion.a
-                href="#contact"
-                className="group relative inline-flex items-center gap-2 bg-teal text-white font-semibold px-10 py-4 rounded-md overflow-hidden"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                <span className="relative">Schedule Service</span>
-                <ArrowRight className="w-4 h-4 relative group-hover:translate-x-1 transition-transform" />
-              </motion.a>
+              <Link href="/#contact">
+                <motion.span
+                  className="group relative inline-flex items-center gap-2 bg-teal text-white font-semibold px-10 py-4 rounded-md overflow-hidden cursor-pointer"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                  <span className="relative">Get a Free Quote</span>
+                  <ArrowRight className="w-4 h-4 relative group-hover:translate-x-1 transition-transform" />
+                </motion.span>
+              </Link>
             </div>
           </div>
         </motion.div>
