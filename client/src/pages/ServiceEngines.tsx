@@ -4,6 +4,7 @@
  */
 
 import ServicePageLayout from "@/components/ServicePageLayout";
+import SEO from "@/components/SEO";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/engine-hero-3EACz5FUmn4dBkXwycY2Lk.webp";
 
@@ -65,6 +66,12 @@ const processSteps = [
 
 export default function ServiceEngines() {
   return (
+    <>
+    <SEO
+      title="Marine Engine Work & Full Repowers"
+      description="Expert marine engine service & full repowers on Cape Cod & North Shore. Yamaha, Mercury, Suzuki, Honda certified. Outboard, inboard & sterndrive. Diagnostics, repair & rigging."
+      path="/services/engines-repowers"
+    />
     <ServicePageLayout
       heroImage={HERO_IMG}
       heroLabel="Engine Work & Repowers"
@@ -86,5 +93,6 @@ export default function ServiceEngines() {
       ctaText="Tell us about your boat, your current engine, and what you're looking for. We'll assess the situation and put together a plan — from a simple repair to a full repower package."
       serviceValue="engine-repower"
     />
+    </>
   );
 }

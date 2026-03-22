@@ -4,6 +4,7 @@
  */
 
 import ServicePageLayout from "@/components/ServicePageLayout";
+import SEO from "@/components/SEO";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/electronics-hero-Fk2kT5CpswduHg3iNxHyJ5.webp";
 
@@ -65,6 +66,12 @@ const processSteps = [
 
 export default function ServiceElectronics() {
   return (
+    <>
+    <SEO
+      title="Yacht Electronics Installation & Sales"
+      description="Marine electronics sales & installation on Cape Cod & North Shore. Garmin, Simrad, Raymarine certified. Chartplotters, radar, fish finders, audio & lighting. Mobile service."
+      path="/services/electronics"
+    />
     <ServicePageLayout
       heroImage={HERO_IMG}
       heroLabel="Yacht Electronics"
@@ -86,5 +93,6 @@ export default function ServiceElectronics() {
       ctaText="Tell us about your boat and what you're looking for. We'll come to you with a free consultation and custom quote — no obligation."
       serviceValue="electronics-installation"
     />
+    </>
   );
 }

@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const HYFOIL_IMG_1 = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/hyfoil-boat-new_312c33d0.png";
 const HYFOIL_IMG_2 = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/hyfoil-boat-2_73195751.webp";
@@ -30,6 +31,11 @@ const fadeUp = {
 export default function Partners() {
   return (
     <div className="min-h-screen flex flex-col bg-sand">
+      <SEO
+        title="Our Partners"
+        description="Sand & Reef partners with HYFOIL Marine, Flux Marine, SiOnyx, and Coastal Yacht Wraps. Authorized dealer and installer for cutting-edge marine technology on Cape Cod."
+        path="/partners"
+      />
       <Navbar />
 
       {/* Hero Banner */}

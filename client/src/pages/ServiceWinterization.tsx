@@ -4,6 +4,7 @@
  */
 
 import ServicePageLayout from "@/components/ServicePageLayout";
+import SEO from "@/components/SEO";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/winterization-hero-6J5uuLxwUuBqhNVAfGvyWt.webp";
 
@@ -65,6 +66,12 @@ const processSteps = [
 
 export default function ServiceWinterization() {
   return (
+    <>
+    <SEO
+      title="Boat Winterization & Shrink-Wrap"
+      description="Professional boat winterization & shrink-wrapping on Cape Cod & North Shore. Engine winterization, antifreeze treatment, battery care. Protect your vessel through New England winters."
+      path="/services/winterization"
+    />
     <ServicePageLayout
       heroImage={HERO_IMG}
       heroLabel="Winterization"
@@ -86,5 +93,6 @@ export default function ServiceWinterization() {
       ctaText="Don't wait until the first frost. Secure your winterization slot early and we'll handle everything — from engine prep to shrink-wrap — so your boat is ready for spring."
       serviceValue="winterization"
     />
+    </>
   );
 }

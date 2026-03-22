@@ -4,6 +4,7 @@
  */
 
 import ServicePageLayout from "@/components/ServicePageLayout";
+import SEO from "@/components/SEO";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/detailing-hero-ieRjgZYJR2jorXSEYaovDJ.webp";
 
@@ -65,6 +66,12 @@ const processSteps = [
 
 export default function ServiceDetailing() {
   return (
+    <>
+    <SEO
+      title="Boat Detailing, Washing & Waxing"
+      description="Professional boat detailing on Cape Cod & North Shore. Hull cleaning, topside polish, wax & seal, interior detailing, ceramic coating. Mobile service to your dock."
+      path="/services/detailing"
+    />
     <ServicePageLayout
       heroImage={HERO_IMG}
       heroLabel="Detailing"
@@ -86,5 +93,6 @@ export default function ServiceDetailing() {
       ctaText="Tell us about your boat and what it needs. Whether it's a quick wash or a full restoration, we'll put together a custom plan and come to you."
       serviceValue="detailing"
     />
+    </>
   );
 }

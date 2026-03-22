@@ -4,6 +4,7 @@
  */
 
 import ServicePageLayout from "@/components/ServicePageLayout";
+import SEO from "@/components/SEO";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/gelcoat-hero-XFsXeYyUDrZ8zU5WFSBcAj.webp";
 
@@ -65,6 +66,12 @@ const processSteps = [
 
 export default function ServiceGelcoat() {
   return (
+    <>
+    <SEO
+      title="Gel Coat Repair & Bottom Paint"
+      description="Professional gel coat repair, refinishing & bottom paint on Cape Cod & North Shore. Antifouling paint, blister repair, barrier coats. Factory-quality color matching."
+      path="/services/gelcoat-bottom-paint"
+    />
     <ServicePageLayout
       heroImage={HERO_IMG}
       heroLabel="Gel Coat & Bottom Paint"
@@ -86,5 +93,6 @@ export default function ServiceGelcoat() {
       ctaText="Tell us about your boat and what it needs. Whether it's a gel coat chip or a full bottom job, we'll put together a plan and get your hull back in shape."
       serviceValue="gelcoat-bottom-paint"
     />
+    </>
   );
 }

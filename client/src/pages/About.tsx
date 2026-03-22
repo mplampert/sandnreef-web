@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { Shield, ArrowRight, Phone } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const teamMembers = [
   {
@@ -73,6 +74,11 @@ const fadeUp = {
 export default function About() {
   return (
     <div className="min-h-screen flex flex-col bg-sand">
+      <SEO
+        title="About Us — Meet the Team"
+        description="Meet the Sand & Reef team. Veteran-owned marine services on Cape Cod & North Shore. Local experts with decades of experience in marine electronics, detailing, and engine work."
+        path="/about"
+      />
       <Navbar />
 
       {/* Hero Banner */}
