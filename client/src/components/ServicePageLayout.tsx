@@ -4,7 +4,7 @@
  * process steps, and embedded contact form pre-selecting the service.
  */
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { ArrowRight, CheckCircle, Phone, Mail, Send, Anchor } from "lucide-react";
@@ -67,6 +67,17 @@ export default function ServicePageLayout({
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+
+  // Fire Meta Pixel ViewContent event on service page load
+  useEffect(() => {
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      (window as any).fbq("track", "ViewContent", {
+        content_name: serviceValue,
+        content_category: "Service Page",
+        content_type: "service",
+      });
+    }
+  }, [serviceValue]);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
