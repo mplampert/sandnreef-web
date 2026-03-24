@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
 import { HelmetProvider } from "react-helmet-async";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -15,6 +16,17 @@ import ServiceGelcoat from "./pages/ServiceGelcoat";
 import ServiceEngines from "./pages/ServiceEngines";
 import ServiceMaintenance from "./pages/ServiceMaintenance";
 
+
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    // Don't scroll to top if navigating to a hash anchor
+    if (!window.location.hash) {
+      window.scrollTo({ top: 0, left: 0 });
+    }
+  }, [location]);
+  return null;
+}
 
 function Router() {
   return (
@@ -44,6 +56,7 @@ function App() {
         >
           <TooltipProvider>
             <Toaster />
+            <ScrollToTop />
             <Router />
           </TooltipProvider>
         </ThemeProvider>
