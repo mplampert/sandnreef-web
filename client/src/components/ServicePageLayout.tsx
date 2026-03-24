@@ -531,10 +531,7 @@ export default function ServicePageLayout({
                           className="mt-1 h-4 w-4 rounded border-sand-dark text-teal focus:ring-teal/30 cursor-pointer shrink-0"
                         />
                         <label htmlFor="smsOptInService" className="text-xs text-navy/60 leading-relaxed cursor-pointer">
-                          I agree to receive text messages from Sand &amp; Reef Marine Solutions. Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to opt out. View our{" "}
-                          <a href="/privacy" className="text-teal hover:underline">Privacy Policy</a>{" "}
-                          and{" "}
-                          <a href="/terms" className="text-teal hover:underline">Terms of Service</a>.
+                          I agree to receive marketing and service-related text messages from Sand &amp; Reef Marine Solutions, including appointment reminders, service updates, and promotional offers. Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to opt out.
                         </label>
                       </div>
 

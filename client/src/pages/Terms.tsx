@@ -84,6 +84,9 @@ export default function Terms() {
                   <li>Reply STOP to unsubscribe from text messages at any time.</li>
                   <li>Reply HELP for help.</li>
                 </ul>
+                <p className="text-navy/70 leading-relaxed mb-4">
+                  You must be 18 years of age or older to opt in to SMS/text messaging from Sand &amp; Reef Marine Solutions. By opting in, you confirm that you are at least 18 years of age.
+                </p>
                 <p className="text-navy/70 leading-relaxed">
                   Sand &amp; Reef Marine Solutions will not share your opt-in to receive SMS messages or your phone number with any third parties for marketing purposes. For questions regarding our text messaging program, contact us at{" "}
                   <a href="tel:5082946905" className="text-teal hover:underline">(508) 294-6905</a> or{" "}
