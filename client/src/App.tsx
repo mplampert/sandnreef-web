@@ -15,6 +15,8 @@ import ServiceWinterization from "./pages/ServiceWinterization";
 import ServiceGelcoat from "./pages/ServiceGelcoat";
 import ServiceEngines from "./pages/ServiceEngines";
 import ServiceMaintenance from "./pages/ServiceMaintenance";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 
 function ScrollToTop() {
@@ -40,6 +42,8 @@ function Router() {
       <Route path={"/services/gelcoat-bottom-paint"} component={ServiceGelcoat} />
       <Route path={"/services/engines-repowers"} component={ServiceEngines} />
       <Route path={"/services/maintenance"} component={ServiceMaintenance} />
+      <Route path={"/privacy"} component={Privacy} />
+      <Route path={"/terms"} component={Terms} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

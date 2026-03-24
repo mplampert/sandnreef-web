@@ -217,9 +217,21 @@ export default function Footer() {
           <p className="text-white/40 text-sm">
             &copy; {new Date().getFullYear()} Sand &amp; Reef. All rights reserved.
           </p>
-          <p className="text-white/30 text-xs">
-            Mobile service available across Cape Cod & the North Shore, Massachusetts
-          </p>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/privacy"
+              className="text-white/40 hover:text-teal transition-colors text-xs"
+            >
+              Privacy Policy
+            </Link>
+            <span className="text-white/20">|</span>
+            <Link
+              href="/terms"
+              className="text-white/40 hover:text-teal transition-colors text-xs"
+            >
+              Terms of Service
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
