@@ -49,6 +49,7 @@ const teamMembers = [
     role: "North Shore Owner / General Manager",
     experience: "14+ years",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/nate-kennedy_8b8d988c.webp",
+    objectPos: "object-[center_15%]",
     bio: "I've always been driven by a passion for the water and the outdoors. Fishing isn't just a hobby for me — it's a way of life. That lifelong love of being on the water inspired me to join this amazing company, built on quality, reliability, and a true understanding of what boaters and anglers need. Professionally, I bring over 14 years of experience as a Project Manager, and eight years as an EMT. I'm proud to serve as President of Beverly Youth Lacrosse. My approach: lead with integrity, work hard, and always be prepared.",
     location: "North Shore",
   },
