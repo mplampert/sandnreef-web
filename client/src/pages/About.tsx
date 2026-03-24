@@ -43,7 +43,8 @@ const teamMembers = [
     role: "Operations & Team Lead",
     experience: "2 years",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663412394151/6sSpA7rGtoUjxUyfT8JTHc/dekel-cohen-sharon-new_ed82b947.webp",
-    objectPos: "object-[center_20%]",
+    objectPos: "object-[center_40%]",
+    imgHeight: "h-[450px] lg:h-[600px]",
     bio: "At Sand & Reef, I work closely with our team to keep daily operations running smoothly and deliver reliable, high-quality marine services. With a background as a college basketball team captain, I bring a team-first mindset, clear communication, and accountability to helping build a company that can grow while remaining dependable and customer-focused.",
     location: "Cape Cod",
   },
@@ -146,7 +147,7 @@ export default function About() {
                       <img
                         src={member.image}
                         alt={member.name}
-                        className={`w-full h-80 lg:h-[480px] object-cover ${(member as any).objectPos || 'object-top'} transition-transform duration-700 group-hover:scale-105`}
+                        className={`w-full ${(member as any).imgHeight || 'h-80 lg:h-[480px]'} object-cover ${(member as any).objectPos || 'object-top'} transition-transform duration-700 group-hover:scale-105`}
                       />
                       {/* Gradient overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent" />
