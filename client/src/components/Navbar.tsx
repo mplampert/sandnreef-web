@@ -269,15 +269,23 @@ export default function Navbar() {
             <Phone className="w-4 h-4" />
             (508) 294-6905
           </a>
-          <Link href={isHomePage ? "#contact" : "/#contact"}>
+          <a
+            href={isHomePage ? "#contact" : "/#contact"}
+            onClick={(e) => {
+              if (isHomePage) {
+                e.preventDefault();
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          >
             <motion.span
-              className="bg-teal hover:bg-teal-light text-white text-sm font-semibold px-6 py-2.5 rounded-md transition-all duration-300 hover:shadow-lg hover:shadow-teal/20 inline-block"
+              className="bg-teal hover:bg-teal-light text-white text-sm font-semibold px-6 py-2.5 rounded-md transition-all duration-300 hover:shadow-lg hover:shadow-teal/20 inline-block cursor-pointer"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
               Book Now
             </motion.span>
-          </Link>
+          </a>
         </div>
 
         {/* Mobile menu button */}
@@ -431,13 +439,19 @@ export default function Navbar() {
                   <Phone className="w-4 h-4" />
                   (508) 294-6905
                 </a>
-                <Link
+                <a
                   href={isHomePage ? "#contact" : "/#contact"}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => {
+                    setMobileOpen(false);
+                    if (isHomePage) {
+                      e.preventDefault();
+                      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
                   className="block text-center bg-teal text-white font-semibold py-3 rounded-md hover:bg-teal-light transition-colors"
                 >
                   Book Now
-                </Link>
+                </a>
               </div>
             </div>
           </motion.div>
