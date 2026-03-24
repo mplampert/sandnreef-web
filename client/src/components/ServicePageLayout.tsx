@@ -67,6 +67,7 @@ export default function ServicePageLayout({
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [smsOptIn, setSmsOptIn] = useState(false);
 
   // Fire Meta Pixel ViewContent event on service page load
   useEffect(() => {
@@ -518,6 +519,23 @@ export default function ServicePageLayout({
                           placeholder="Describe what you need..."
                           className="w-full px-4 py-3 rounded-lg border border-sand-dark bg-sand/30 text-navy placeholder:text-muted-foreground/50 focus:outline-none focus:border-teal focus:ring-2 focus:ring-teal/10 transition-all duration-300 resize-none"
                         />
+                      </div>
+
+                      {/* SMS Opt-In Checkbox */}
+                      <div className="flex items-start gap-3">
+                        <input
+                          type="checkbox"
+                          id="smsOptInService"
+                          checked={smsOptIn}
+                          onChange={(e) => setSmsOptIn(e.target.checked)}
+                          className="mt-1 h-4 w-4 rounded border-sand-dark text-teal focus:ring-teal/30 cursor-pointer shrink-0"
+                        />
+                        <label htmlFor="smsOptInService" className="text-xs text-navy/60 leading-relaxed cursor-pointer">
+                          I agree to receive text messages from Sand &amp; Reef Marine Solutions. Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to opt out. View our{" "}
+                          <a href="/privacy" className="text-teal hover:underline">Privacy Policy</a>{" "}
+                          and{" "}
+                          <a href="/terms" className="text-teal hover:underline">Terms of Service</a>.
+                        </label>
                       </div>
 
                       {error && (
