@@ -116,13 +116,20 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                "Electronic Sales & Installation",
-                "Winterization & Shrink-Wrap",
-                "Washing & Waxing",
-                "Preventative Maintenance",
+                { label: "Electronics", href: "/services/electronics" },
+                { label: "Winterization & Shrink-Wrap", href: "/services/winterization" },
+                { label: "Detailing & Washing", href: "/services/detailing" },
+                { label: "Gel Coat & Bottom Paint", href: "/services/gelcoat-bottom-paint" },
+                { label: "Engines & Repowers", href: "/services/engines-repowers" },
+                { label: "Maintenance", href: "/services/maintenance" },
               ].map((service) => (
-                <li key={service}>
-                  <span className="text-white/50 text-sm">{service}</span>
+                <li key={service.label}>
+                  <Link
+                    href={service.href}
+                    className="text-white/50 hover:text-teal transition-colors duration-300 text-sm hover:translate-x-1 inline-block"
+                  >
+                    {service.label}
+                  </Link>
                 </li>
               ))}
             </ul>
